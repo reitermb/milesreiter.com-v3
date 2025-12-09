@@ -85,22 +85,27 @@
    .hero .buttons a {
      text-decoration: none;
      background: #fff;
-     color: #2575fc;
+     color: #888;
      padding: 0.75rem 1.5rem;
-     border-radius: 4px;
+     border-radius: 8px;
      border: solid;
      border-color: #ccc;
      font-weight: bold;
-     transition: transform 0.2s ease, background 0.3s, color 0.3s;
+     transition: transform 0.25s ease;
      display: inline-block; /* ensures transform works cleanly */
+     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
    }
 
    .hero .buttons a:hover {
-     background: #2575fc;
-     color: #fff;
      transform: scale(1.06); /* slightly enlarges the button */
      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 
+   }
+
+   .green {
+    border-color: #8db81e !important;
+    color: #29461f !important;
+    background: #e3ffc4 !important;
    }
 
 
@@ -138,4 +143,89 @@
         font-size: 1.1rem;
       }
     }
+
+    :root{
+  --note-bg: #fff59e;        /* soft yellow */
+  --note-line: #f6e96c;      /* subtle lined-paper tint */
+  --note-text: #2a2a2a;
+  --note-accent: #c48f00;    /* link hover underline color */
+  --pin: #c11;               /* red pin color */
+}
+
+/* Reset-friendly tip: ensure body has some position context if needed */
+/* body { position: relative; } */
+
+.sticky-note {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: min(280px, 35vw);
+  padding: 1rem 1rem 1.25rem;
+  color: #2a2a2a;
+  background-color: #fff59e; /* solid yellow */
+  border-radius: 6px;
+  box-shadow: 4px 6px 12px rgba(0,0,0,0.25); /* single shadow */
+  transform: rotate(-1.25deg);
+  transform-origin: 20% 10%;
+}
+
+/* optional: remove the dog-ear and pin pseudo-elements if you want pure yellow */
+.sticky-note::before,
+.sticky-note::after {
+  content: none;
+}
+
+
+
+/* push-pin effect at the top */
+.sticky-note::before{
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 16px;
+  width: 14px;
+  height: 14px;
+  background: radial-gradient(circle at 35% 35%, #ffcbc7, #d33 60%, #921 100%);
+  border-radius: 50%;
+  box-shadow: 0 3px 0 rgba(0,0,0,0.35), 0 10px 12px rgba(0,0,0,0.25);
+}
+
+/* Typography */
+.sticky-note__title{
+  margin: 0 0 0.5rem;
+  font-size: clamp(1rem, 2.8vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.sticky-note__text{
+  margin: 0 0 0.75rem;
+  font-size: clamp(0.9rem, 2.6vw, 1rem);
+  line-height: 1.35;
+}
+
+.sticky-note__link{
+  display: inline-block;
+  font-weight: 600;
+  color: #004b91;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+
+.sticky-note__link:focus{
+  outline: 2px solid #004b91;
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+.sticky-note__link:hover{
+  border-bottom-color: var(--note-accent);
+}
+
+/* Motion-sensitivity */
+@media (prefers-reduced-motion: reduce){
+  .sticky-note{
+    transform: none;
+  }
+}
   </style>
