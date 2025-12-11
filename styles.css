@@ -1,4 +1,43 @@
 <style>
+/* Regular */
+@font-face {
+  font-family: 'Newsreader';
+  src: url('./fonts/Newsreader-VariableFont_opsz,wght.ttf') format('ttf'),
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Newsreader';
+  src: url('./fonts/Newsreader-Italic-VariableFont_opsz,wght.ttf') format('ttf'),
+  font-weight: 100 900;
+  font-style: italic;
+}
+
+/* Regular */
+@font-face {
+  font-family: 'Krub';
+  src: url('./fonts/Krub-Regular') format('ttf'),
+  font-weight: 400; /* bold */
+  font-style: normal;
+}
+
+/* Regular Italic*/
+@font-face {
+  font-family: 'Krub';
+  src: url('./fonts/Krub-Italic') format('ttf'),
+  font-weight: 400; /* bold */
+  font-style: italic;
+}
+
+/* Bold */
+@font-face {
+  font-family: 'Krub';
+  src: url('./fonts/Krub-Bold') format('ttf'),
+  font-weight: 700; /* bold */
+  font-style: normal;
+}
+
     * {
       margin: 0;
       padding: 0;
@@ -39,7 +78,8 @@
       z-index: 1;
       display: inline-block;
       margin-bottom: 0rem;
-      font-family: Newsreader;
+      font-family: Newsreader, serif;
+      font-weight: 900;
       text-shadow: -2px -2px 0 #fffcf3, 0 -2px 0 #fffcf3, 2px -2px 0 #fffcf3, 2px 0 0 #fffcf3, 2px 2px 0 #fffcf3, 0 2px 0 #fffcf3, -2px 2px 0 #fffcf3, -2px 0 0 #fffcf3;
     }
 
@@ -70,6 +110,7 @@
     }
 
     .hero p {
+      font-family: Krub;
       font-size: 1.2rem;
       max-width: 800px;
       margin-bottom: 2rem;
