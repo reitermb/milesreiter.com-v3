@@ -1,40 +1,17 @@
 <style>
-/* Regular */
-@font-face {
-  font-family: 'Newsreader';
-  src: url('./fonts/Newsreader-VariableFont_opsz,wght.ttf') format('ttf'),
-  font-weight: 100 900;
+.cabin-<uniquifier> {
+  font-family: "Cabin", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
   font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }
 
-@font-face {
-  font-family: 'Newsreader';
-  src: url('./fonts/Newsreader-Italic-VariableFont_opsz,wght.ttf') format('ttf'),
-  font-weight: 100 900;
-  font-style: italic;
-}
-
-/* Regular */
-@font-face {
-  font-family: 'Krub';
-  src: url('./fonts/Krub-Regular') format('ttf'),
-  font-weight: 400; /* bold */
-  font-style: normal;
-}
-
-/* Regular Italic*/
-@font-face {
-  font-family: 'Krub';
-  src: url('./fonts/Krub-Italic') format('ttf'),
-  font-weight: 400; /* bold */
-  font-style: italic;
-}
-
-/* Bold */
-@font-face {
-  font-family: 'Krub';
-  src: url('./fonts/Krub-Bold') format('ttf'),
-  font-weight: 700; /* bold */
+.newsreader-<uniquifier> {
+  font-family: "Newsreader", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
   font-style: normal;
 }
 
@@ -103,20 +80,23 @@
 
     .hero h2 {
       margin-top: -15px;
-      font-family: Newsreader;
+      font-family: Newsreader, serif;
       font-size: 2.09rem;
+      font-weight: 900;
       text-align: left;
       margin-bottom: 1rem;
     }
 
     .hero p {
-      font-family: Krub;
+      font-family: Cabin, sans-serif;
       font-size: 1.2rem;
       max-width: 800px;
       margin-bottom: 2rem;
     }
 
     .hero .buttons {
+      font-family: Cabin, sans-serif;
+      font-size: 1.1rem;
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
