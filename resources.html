@@ -49,26 +49,28 @@
   <hr>
 
 <div class="resources">
-  <template x-for="resource in filteredResources()" :key="resource.id">
-    <div class="resource" x-show="resource.tab === activeTab">
-      
-      <!-- Title: show as link if resource.link exists, otherwise plain text -->
-      <h3>
-        <template x-if="resource.link">
-          <a :href="resource.link" target="_blank" x-text="resource.title"></a>
-        </template>
-        <template x-if="!resource.link">
-          <span x-text="resource.title"></span>
-        </template>
-      </h3>
-      
-      <!-- Description -->
-      <p x-text="resource.description"></p>
-      
-      <!-- Categories -->
-      <small>Categories: <span x-text="resource.categories.join(', ')"></span></small>
-    </div>
-  </template>
+  <ul>
+    <template x-for="resource in filteredResources()" :key="resource.id">
+      <li x-show="resource.tab === activeTab" class="resource">
+        
+        <!-- Title: bolded, optionally linked -->
+        <strong>
+          <template x-if="resource.link">
+            <a :href="resource.link" target="_blank" x-text="resource.title"></a>
+          </template>
+          <template x-if="!resource.link">
+            <span x-text="resource.title"></span>
+          </template>
+        </strong>
+        
+        <!-- Description -->
+        <p x-text="resource.description"></p>
+        
+        <!-- Categories -->
+        <small>Categories: <span x-text="resource.categories.join(', ')"></span></small>
+      </li>
+    </template>
+  </ul>
 </div>
 
 <script>
@@ -87,35 +89,35 @@ function resourceApp() {
       },
       { 
         id: 2, 
-        title: 'Civic Tech Case Study', 
-        description: 'Insights from a civic technology project modernizing public reporting systems.', 
-        link: 'https://example.com/civic-tech', 
+        title: '311 - Non-Emergency Services', 
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam turpis leo, cursus eget pellentesque vitae, ullamcorper in arcu', 
+        link: '', 
         tab: 'tab1', 
-        categories: ['civic-tech', 'research'] 
+        categories: ['hotlines',] 
       },
-      { 
+       { 
         id: 3, 
-        title: 'Design Systems Handbook', 
-        description: 'Comprehensive overview of design systems and modular UI patterns.', 
-        link: 'https://example.com/design-systems', 
-        tab: 'tab2', 
-        categories: ['design'] 
-      },
-      { 
+        title: '211 (or text 898-211)', 
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam turpis leo, cursus eget pellentesque vitae, ullamcorper in arcu', 
+        link: 'https://in211.communityos.org/', 
+        tab: 'tab1', 
+        categories: ['hotlines',] 
+      },     
+            { 
         id: 4, 
-        title: 'Accessibility in Civic Tech', 
-        description: 'Exploring accessibility challenges and solutions in civic technology projects.', 
-        link: 'https://example.com/accessibility-civic', 
-        tab: 'tab3', 
-        categories: ['accessibility', 'civic-tech'] 
+        title: '988 - Suicide / Mental Health Crisis Hotline', 
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam turpis leo, cursus eget pellentesque vitae, ullamcorper in arcu', 
+        link: 'https://988indiana.org/', 
+        tab: 'tab1', 
+        categories: ['hotlines',] 
       },
-      { 
+               { 
         id: 5, 
-        title: 'Research Methods in UX', 
-        description: 'A toolkit for conducting effective UX research and user testing.', 
-        link: 'https://example.com/ux-research', 
-        tab: 'tab4', 
-        categories: ['research'] 
+        title: '877-565-8860 - Trans Lifeline', 
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam turpis leo, cursus eget pellentesque vitae, ullamcorper in arcu', 
+        link: 'https://translifeline.org/', 
+        tab: 'tab1', 
+        categories: ['hotlines',] 
       },
     ],
     toggleCategory(event) {
