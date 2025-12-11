@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Resource Filter with Alpine.js</title>
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+  <style>
+    .hidden { display: none; }
+    .active-tab { font-weight: bold; border-bottom: 2px solid blue; border-top-left-radius: 5px; border-top-right-radius: 5px; background-color: #9edcfa;}
+    .resource { margin: 0.5rem 0; }
+    .filters {margin-bottom: 16px;}
+    button { padding: 8px; background-color: #fff; margin-left: 0px; border: none; border-bottom: 2px solid #333; margin-bottom: 16px}
+  </style>
+</head>
+<body x-data="resourceApp()">
+
+  <!-- Tabs -->
+  <div class="tabs">
+    <button 
+      :class="{'active-tab': activeTab === 'tab1'}" 
+      @click="activeTab = 'tab1'">In Little Flower</button>
+    <button 
+      :class="{'active-tab': activeTab === 'tab2'}" 
+      @click="activeTab = 'tab2'">On The Near Eastside</button>
+    <button 
+      :class="{'active-tab': activeTab === 'tab3'}" 
+      @click="activeTab = 'tab3'">In Indianapolis</button>
+    <button 
+      :class="{'active-tab': activeTab === 'tab4'}" 
+      @click="activeTab = 'tab4'">Nationally Available</button>
+  </div>
+
+  <!-- Category Filters -->
+  <div class="filters">
+    <label><input type="checkbox" value="hotlines" @change="toggleCategory($event)">Hotlines</label>
+    <label><input type="checkbox" value="construction" @change="toggleCategory($event)">Construction</label>
+    <label><input type="checkbox" value="housing-assistance" @change="toggleCategory($event)">Housing Assistance</label>
+    <label><input type="checkbox" value="food-assistance" @change="toggleCategory($event)">Food Assistance</label>
+    <label><input type="checkbox" value="legal-assistance" @change="toggleCategory($event)">Legal Assistance</label>
+    <label><input type="checkbox" value="sanitation" @change="toggleCategory($event)">Sanitation</label>
+    <label><input type="checkbox" value="political-representation" @change="toggleCategory($event)">Political Representation</label>
+    <label><input type="checkbox" value="things-to-do" @change="toggleCategory($event)">Things to do</label>
+    <label><input type="checkbox" value="miscellaneous" @change="toggleCategory($event)">Miscellaneous</label>
+
+
+
+
+  </div>
+  <hr>
+
+<div class="resources">
+  <template x-for="resource in filteredResources()" :key="resource.id">
+    <div class="resource" x-show="resource.tab === activeTab">
+      
+      <!-- Title: show as link if resource.link exists, otherwise plain text -->
+      <h3>
+        <template x-if="resource.link">
+          <a :href="resource.link" target="_blank" x-text="resource.title"></a>
+        </template>
+        <template x-if="!resource.link">
+          <span x-text="resource.title"></span>
+        </template>
+      </h3>
+      
+      <!-- Description -->
+      <p x-text="resource.description"></p>
+      
+      <!-- Categories -->
+      <small>Categories: <span x-text="resource.categories.join(', ')"></span></small>
+    </div>
+  </template>
+</div>
+
+<script>
+function resourceApp() {
+  return {
+    activeTab: 'tab1',
+    selectedCategories: [],
+    resources: [
+      { 
+        id: 1, 
+        title: '911 - Emergency Services', 
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam turpis leo, cursus eget pellentesque vitae, ullamcorper in arcu', 
+        link: '', 
+        tab: 'tab1', 
+        categories: ['hotlines',] 
+      },
+      { 
+        id: 2, 
+        title: 'Civic Tech Case Study', 
+        description: 'Insights from a civic technology project modernizing public reporting systems.', 
+        link: 'https://example.com/civic-tech', 
+        tab: 'tab1', 
+        categories: ['civic-tech', 'research'] 
+      },
+      { 
+        id: 3, 
+        title: 'Design Systems Handbook', 
+        description: 'Comprehensive overview of design systems and modular UI patterns.', 
+        link: 'https://example.com/design-systems', 
+        tab: 'tab2', 
+        categories: ['design'] 
+      },
+      { 
+        id: 4, 
+        title: 'Accessibility in Civic Tech', 
+        description: 'Exploring accessibility challenges and solutions in civic technology projects.', 
+        link: 'https://example.com/accessibility-civic', 
+        tab: 'tab3', 
+        categories: ['accessibility', 'civic-tech'] 
+      },
+      { 
+        id: 5, 
+        title: 'Research Methods in UX', 
+        description: 'A toolkit for conducting effective UX research and user testing.', 
+        link: 'https://example.com/ux-research', 
+        tab: 'tab4', 
+        categories: ['research'] 
+      },
+    ],
+    toggleCategory(event) {
+      const value = event.target.value;
+      if (event.target.checked) {
+        this.selectedCategories.push(value);
+      } else {
+        this.selectedCategories = this.selectedCategories.filter(c => c !== value);
+      }
+    },
+    filteredResources() {
+      if (this.selectedCategories.length === 0) return this.resources;
+      return this.resources.filter(r =>
+        r.categories.some(c => this.selectedCategories.includes(c))
+      );
+    }
+  }
+}
+</script>
+
+</body>
+</html>
