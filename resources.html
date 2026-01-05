@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="robots" content="noindex">
   <title>LFNA Resources Guide</title>
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
   <style>
@@ -35,9 +36,9 @@
     <button 
       :class="{'active-tab': activeTab === 'tab6'}" 
       @click="activeTab = 'tab6'">Sanitation</button>
-    <button 
+ <!--    <button 
         :class="{'active-tab': activeTab === 'tab8'}" 
-        @click="activeTab = 'tab8'">Political Representation</button>
+        @click="activeTab = 'tab8'">Political Representation</button> -->
     <button 
         :class="{'active-tab': activeTab === 'tab9'}" 
         @click="activeTab = 'tab9'">Things To Do</button>
@@ -89,15 +90,15 @@ function resourceApp() {
       { 
         id: 1, 
         title: '911 - Emergency Services', 
-        description: '', 
+        description: 'Call 911 for any life‑threatening emergency to reach police, fire, or medical responders', 
         link: '', 
         tab: 'tab1', 
         categories: ['nationwide',] 
       },
       { 
         id: 2, 
-        title: '311 - Non-Emergency Services', 
-        description: '', 
+        title: '311 - Non-Emergency Services (aka Request Indy)', 
+        description: 'Report non‑urgent issues like potholes, trash, noise, or other city service needs without tying up emergency lines.',
         link: 'https://request.indy.gov/citizen/s/', 
         tab: 'tab1', 
         categories: ['hotlines',] 
@@ -105,7 +106,7 @@ function resourceApp() {
        { 
         id: 3, 
         title: '211 (or text 898-211) - Operator line for city resources', 
-        description: '', 
+        description: 'Indiana 211 connects you with local resources such as housing help, food assistance, health services, and other community programs, available by phone or text.', 
         link: 'https://in211.communityos.org/', 
         tab: 'tab1', 
         categories: ['hotlines',] 
@@ -113,7 +114,7 @@ function resourceApp() {
             { 
         id: 4, 
         title: '988 - Suicide / Mental Health Crisis Hotline', 
-        description: '', 
+        description: 'Call or text 988 for free, confidential support if you or someone you know is experiencing suicidal thoughts, emotional distress, or a mental health or substance‑use crisis.',
         link: 'https://988indiana.org/', 
         tab: 'tab1', 
         categories: ['hotlines',] 
@@ -121,7 +122,7 @@ function resourceApp() {
                { 
         id: 5, 
         title: '877-565-8860 - Trans Lifeline', 
-        description: '', 
+        description: 'Peer-support phone service run by trans people for trans and questioning peers offering direct emotional and financial support to trans people in crisis.', 
         link: 'https://translifeline.org/', 
         tab: 'tab1', 
         categories: ['hotlines',] 
@@ -129,7 +130,7 @@ function resourceApp() {
                { 
         id: 6, 
         title: '623-473-7433 (Text or call) - Fireside Project Psychedelic Support Line', 
-        description: '', 
+        description: 'Call or text this line for confidential, non‑judgmental support if you’re currently having a psychedelic experience, preparing for one, or wanting help integrating afterward.', 
         link: 'https://firesideproject.org/', 
         tab: 'tab1', 
         categories: ['hotlines',] 
@@ -165,6 +166,86 @@ function resourceApp() {
         link: 'https://www.in.gov/ihcda/homeowners-and-renters/weatherizationenergy-conservation/', 
         tab: 'tab3', 
         categories: ['housing-assistance',] 
+      },
+               { 
+        id: 11, 
+        title: 'Food Not Bombs', 
+        description: 'Indianapolis Food Not Bombs serves a hot prepared vegan or vegetarian meal every Sunday from 4PM - 6PM at the corner of St. Clair & Meridian (right in front of the Central Indianapolis Public Library)', 
+        link: 'https://www.indyfoodnotbombs.com/', 
+        tab: 'tab4', 
+        categories: ['food-assistance',] 
+      },
+                     { 
+        id: 12, 
+        title: 'Food Not Bombs Grocery Box Delivery', 
+        description: 'Free triage service providing people struggling to afford groceries with an emergency supply to tide them over into a more stable situation.', 
+        link: 'https://docs.google.com/forms/d/e/1FAIpQLSfiTwHHM7wx2cMcucxUvFb5kOACAIUXW-Fk24WQ2LJhHlXpGQ/viewform', 
+        tab: 'tab4', 
+        categories: ['food-assistance',] 
+      },
+                     { 
+        id: 13, 
+        title: 'Linwood Christian Church Food Distribution', 
+        description: 'Food bank distribution (from Gleaners and Midwest Food Bank) to anybody with an ID showing an address within the bounds of East 21st Street, East Washington Street, North Emerson Avenue, and North Rural Street on Wednesdays from 9 AM - 11AM.', 
+        link: 'https://docs.google.com/forms/d/e/1FAIpQLSfiTwHHM7wx2cMcucxUvFb5kOACAIUXW-Fk24WQ2LJhHlXpGQ/viewform', 
+        tab: 'tab4', 
+        categories: ['food-assistance',] 
+      },
+                     { 
+        id: 14, 
+        title: 'Indiana Legal Help', 
+        description: 'Directory to help connect people with free and low-cost legal aid for non-criminal issues including family law, housing, and healthcare.', 
+        link: 'https://indianalegalhelp.org/custom-search/?county=Marion', 
+        tab: 'tab5', 
+        categories: ['legal-assistance',] 
+      },
+                           { 
+        id: 15, 
+        title: 'HUD Indiana Homepage', 
+        description: 'US Department of Housing and Urban Development (HUD) homepage listing a variety of housing resources for Indiana residents including housing assistance, rental help, homelessness resources, and disaster aid.', 
+        link: 'https://indianalegalhelp.org/custom-search/?county=Marion', 
+        tab: 'tab3', 
+        categories: ['housing-assistance',] 
+      },
+                           { 
+        id: 16, 
+        title: 'Household Hazardous Waste (ToxDrop)', 
+        description: 'Detail on where and when to drop of hazardous waste (including batteries, chemicals, and electronics) for responsible disposal in Marion county', 
+        link: 'https://www.indy.gov/activity/hazardous-waste-dropoff-sites', 
+        tab: 'tab6', 
+        categories: ['sanitation',] 
+      },
+                                 { 
+        id: 17, 
+        title: 'Recycling Drop-off Locations', 
+        description: 'Detail on where to find city recycling drop-off locations in Marion county and what types of items can be recycled', 
+        link: 'https://www.indy.gov/activity/find-a-recycling-drop-off-location', 
+        tab: 'tab6', 
+        categories: ['sanitation',] 
+      },
+                                 { 
+        id: 18, 
+        title: 'RecycleForce', 
+        description: 'Nonprofit Recycling center close to Little Flower (816 N Sherman Dr) providing electronics and household recylcing. RecycleForce also employs and trains people returning from incarceration to reduce recidivism and strengthen the community and local economy. Note that certain items including dehumidifiers or other HVAC equipment, refrigerators/freezers, and TVs/monitors require a 20-25 dollar donation to recycle due to their hazardous components', 
+        link: 'https://www.indy.gov/activity/find-a-recycling-drop-off-location', 
+        tab: 'tab6', 
+        categories: ['sanitation',] 
+      },
+                                 { 
+        id: 19, 
+        title: 'NEAR Indy Guide', 
+        description: 'Offers an informative and diverse directory for the Near East Side. The guide features small, locally-owned restaurants, breweries, lively parks, and unique options for shopping.',
+        link: 'https://www.nearindyguide.org/', 
+        tab: 'tab9', 
+        categories: ['things-to-do',] 
+      },
+                                 { 
+        id: 20, 
+        title: 'Indiana Access Pass', 
+        description: 'The Indiana Access Pass lets qualifying Indiana families/individuals visit dozens of museums, historic sites, and cultural attractions for just $5 per person per visit. Any Indiana resident (child or adult) who is actively enrolled in Hoosier Healthwise Insurance, Supplemental Nutrition Assistance Program (SNAP) and/or Temporary Assistance for Needy Families (TANF) can apply.',
+        link: 'https://www.childrensmuseum.org/community/community-access/access-pass', 
+        tab: 'tab9', 
+        categories: ['things-to-do',] 
       },
 
     ],
