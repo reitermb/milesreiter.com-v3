@@ -5,11 +5,12 @@
   <title>Resource Filter with Alpine.js</title>
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
   <style>
+    .p {font-family: sans-serif;}
     .hidden { display: none; }
-    .active-tab { font-weight: bold; border-bottom: 2px solid blue; border-top-left-radius: 5px; border-top-right-radius: 5px; background-color: #9edcfa;}
-    .resource { margin: 0.5rem 0; }
-    .filters {margin-bottom: 16px;}
-    button { padding: 8px; background-color: #fff; margin-left: 0px; border: none; border-bottom: 2px solid #333; margin-bottom: 16px}
+    .active-tab { font-weight: bold; border-bottom: 2px solid #f9bf51; border-top-left-radius: 5px; border-top-right-radius: 5px; background-color: #809653; color: white}
+    .resource { margin: 0.5rem 0; font-family: sans-serif; font-size: 1.2rem}
+    .filters {margin-bottom: 16px; font-size: 1.1rem; font-family: sans-serif;}
+    button { padding: 8px; background-color: #fff; margin-left: 0px; border: none; border-bottom: 2px solid #333; font-size: 1.2rem; margin-bottom: 16px}
   </style>
 </head>
 <body x-data="resourceApp()">
@@ -18,34 +19,39 @@
   <div class="tabs">
     <button 
       :class="{'active-tab': activeTab === 'tab1'}" 
-      @click="activeTab = 'tab1'">In Little Flower</button>
+      @click="activeTab = 'tab1'">Hotlines & Web Resources</button>
     <button 
       :class="{'active-tab': activeTab === 'tab2'}" 
-      @click="activeTab = 'tab2'">On The Near Eastside</button>
+      @click="activeTab = 'tab2'">Construction & Digging</button>
     <button 
       :class="{'active-tab': activeTab === 'tab3'}" 
-      @click="activeTab = 'tab3'">In Indianapolis</button>
+      @click="activeTab = 'tab3'">Housing Assistance</button>
     <button 
       :class="{'active-tab': activeTab === 'tab4'}" 
-      @click="activeTab = 'tab4'">Nationally Available</button>
+      @click="activeTab = 'tab4'">Food Assistance</button>
+    <button 
+        :class="{'active-tab': activeTab === 'tab5'}" 
+        @click="activeTab = 'tab5'">Legal Assistance</button>
+    <button 
+      :class="{'active-tab': activeTab === 'tab6'}" 
+      @click="activeTab = 'tab6'">Sanitation</button>
+    <button 
+        :class="{'active-tab': activeTab === 'tab8'}" 
+        @click="activeTab = 'tab8'">Political Representation</button>
+    <button 
+        :class="{'active-tab': activeTab === 'tab9'}" 
+        @click="activeTab = 'tab9'">Things To Do</button>
   </div>
 
   <!-- Category Filters -->
-  <div class="filters">
-    <label><input type="checkbox" value="hotlines" @change="toggleCategory($event)">Hotlines</label>
-    <label><input type="checkbox" value="construction" @change="toggleCategory($event)">Construction</label>
-    <label><input type="checkbox" value="housing-assistance" @change="toggleCategory($event)">Housing Assistance</label>
-    <label><input type="checkbox" value="food-assistance" @change="toggleCategory($event)">Food Assistance</label>
-    <label><input type="checkbox" value="legal-assistance" @change="toggleCategory($event)">Legal Assistance</label>
-    <label><input type="checkbox" value="sanitation" @change="toggleCategory($event)">Sanitation</label>
-    <label><input type="checkbox" value="political-representation" @change="toggleCategory($event)">Political Representation</label>
-    <label><input type="checkbox" value="things-to-do" @change="toggleCategory($event)">Things to do</label>
-    <label><input type="checkbox" value="miscellaneous" @change="toggleCategory($event)">Miscellaneous</label>
-
-
-
-
-  </div>
+<!--   <div class="filters">
+    <p>All categories are shown by default; choose filters to narrow your results.</p>
+    <label><input type="checkbox" value="lfna" @change="toggleCategory($event)">In Little Flower</label>
+    <label><input type="checkbox" value="ne" @change="toggleCategory($event)">On The Near Eastside</label>
+    <label><input type="checkbox" value="indy" @change="toggleCategory($event)">In Indianapolis / Indiana</label>
+    <label><input type="checkbox" value="nationwide" @change="toggleCategory($event)">Nationwide</label>
+    <label><input type="checkbox" value="mt" @change="toggleCategory($event)">Means-tested</label>
+</div> -->
   <hr>
 
 <div class="resources">
@@ -67,7 +73,8 @@
         <p x-text="resource.description"></p>
         
         <!-- Categories -->
-        <small>Categories: <span x-text="resource.categories.join(', ')"></span></small>
+        <!-- <small>Categories: <span x-text="resource.categories.join(', ')"></span></small> -->
+        <div style="margin-bottom: 22px;"></div>
       </li>
     </template>
   </ul>
@@ -82,10 +89,10 @@ function resourceApp() {
       { 
         id: 1, 
         title: '911 - Emergency Services', 
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam turpis leo, cursus eget pellentesque vitae, ullamcorper in arcu', 
+        description: '', 
         link: '', 
         tab: 'tab1', 
-        categories: ['hotlines',] 
+        categories: ['nationwide',] 
       },
       { 
         id: 2, 
