@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Resource Filter with Alpine.js</title>
+  <title>LFNA Resources Guide</title>
   <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
   <style>
     .p {font-family: sans-serif;}
@@ -20,9 +20,9 @@
     <button 
       :class="{'active-tab': activeTab === 'tab1'}" 
       @click="activeTab = 'tab1'">Hotlines & Web Resources</button>
-    <button 
+  <!--   <button 
       :class="{'active-tab': activeTab === 'tab2'}" 
-      @click="activeTab = 'tab2'">Construction & Digging</button>
+      @click="activeTab = 'tab2'">Construction & Digging</button> -->
     <button 
       :class="{'active-tab': activeTab === 'tab3'}" 
       @click="activeTab = 'tab3'">Housing Assistance</button>
@@ -97,15 +97,15 @@ function resourceApp() {
       { 
         id: 2, 
         title: '311 - Non-Emergency Services', 
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam turpis leo, cursus eget pellentesque vitae, ullamcorper in arcu', 
-        link: '', 
+        description: '', 
+        link: 'https://request.indy.gov/citizen/s/', 
         tab: 'tab1', 
         categories: ['hotlines',] 
       },
        { 
         id: 3, 
-        title: '211 (or text 898-211)', 
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam turpis leo, cursus eget pellentesque vitae, ullamcorper in arcu', 
+        title: '211 (or text 898-211) - Operator line for city resources', 
+        description: '', 
         link: 'https://in211.communityos.org/', 
         tab: 'tab1', 
         categories: ['hotlines',] 
@@ -113,7 +113,7 @@ function resourceApp() {
             { 
         id: 4, 
         title: '988 - Suicide / Mental Health Crisis Hotline', 
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam turpis leo, cursus eget pellentesque vitae, ullamcorper in arcu', 
+        description: '', 
         link: 'https://988indiana.org/', 
         tab: 'tab1', 
         categories: ['hotlines',] 
@@ -121,11 +121,52 @@ function resourceApp() {
                { 
         id: 5, 
         title: '877-565-8860 - Trans Lifeline', 
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam turpis leo, cursus eget pellentesque vitae, ullamcorper in arcu', 
+        description: '', 
         link: 'https://translifeline.org/', 
         tab: 'tab1', 
         categories: ['hotlines',] 
       },
+               { 
+        id: 6, 
+        title: '623-473-7433 (Text or call) - Fireside Project Psychedelic Support Line', 
+        description: '', 
+        link: 'https://firesideproject.org/', 
+        tab: 'tab1', 
+        categories: ['hotlines',] 
+      },
+               { 
+        id: 7, 
+        title: 'Indiana Housing Choice Vouchers (aka Section 8)', 
+        description: 'The Housing Choice Voucher (HCV) program is an income-based rental assistance program for low-income families and individuals.', 
+        link: 'https://www.in.gov/ihcda/homeowners-and-renters/housing-choice-vouchers-hcv/', 
+        tab: 'tab3', 
+        categories: ['housing-assistance',] 
+      },
+               { 
+        id: 8, 
+        title: 'Indiana Housing Now', 
+        description: 'A free, state resource for renters and property managers in Indiana. Search for affordable, accessible and market-rate housing that will fit your needs.', 
+        link: 'https://www.indianahousingnow.org/', 
+        tab: 'tab3', 
+        categories: ['housing-assistance',] 
+      },
+               { 
+        id: 9, 
+        title: 'Energy Assistance Program (EAP)', 
+        description: 'Low income households can apply annually for a benefit that can assist with wintertime energy expenses', 
+        link: 'https://www.in.gov/ihcda/homeowners-and-renters/low-income-home-energy-assistance-program-liheap/', 
+        tab: 'tab3', 
+        categories: ['housing-assistance',] 
+      },
+               { 
+        id: 10, 
+        title: 'Weatherization Assistance Program (Wx)', 
+        description: 'Low income households can apply for free weatherization services to help reduce energy bills.', 
+        link: 'https://www.in.gov/ihcda/homeowners-and-renters/weatherizationenergy-conservation/', 
+        tab: 'tab3', 
+        categories: ['housing-assistance',] 
+      },
+
     ],
     toggleCategory(event) {
       const value = event.target.value;
