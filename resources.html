@@ -42,6 +42,9 @@
     <button 
         :class="{'active-tab': activeTab === 'tab9'}" 
         @click="activeTab = 'tab9'">Things To Do</button>
+            <button 
+        :class="{'active-tab': activeTab === 'tab10'}" 
+        @click="activeTab = 'tab10'">Construction, Digging, and Tools</button>
   </div>
 
   <!-- Category Filters -->
@@ -262,6 +265,14 @@ function resourceApp() {
         link: 'https://www.outcarehealth.org/provider/?drts-search=1&search_keyword%5Btext%5D=&search_keyword%5Bid%5D=&search_keyword%5Btaxonomy%5D=&search_location_address%5Btext%5D=Indianapolis%2C%20IN%2046201%2C%20USA&search_location_address%5Bradius%5D=100&search_location_address%5Bterm_id%5D=&search_location_address%5Btaxonomy%5D=&search_location_address%5Bcenter%5D=39.7745272%2C-86.1165518&search_location_address%5Bviewport%5D=39.75763532270122%2C-86.13650865634273%2C39.79129217675033%2C-86.08297683593302&search_location_address%5Bzoom%5D=&search_term_directory_category=', 
         tab: 'tab2', 
         categories: ['healthcare',] 
+      },
+                         { 
+        id: 23, 
+        title: 'IndyPL Library of Things', 
+        description: 'The Library of Things gives community members a chance to borrow items they might not otherwise purchase because the items might be expensive or infrequently used',
+        link: 'https://www.indypl.org/books-movies-music/special-collections/library-of-things', 
+        tab: 'tab10', 
+        categories: ['tools',] 
       },
  
 
